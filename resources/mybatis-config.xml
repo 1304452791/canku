@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 通过这个配置文件完成mybatis与数据库的连接 -->
+<configuration>
+	<!-- 引入database文件 -->
+	<properties resource="database.properties"></properties>
+	<!-- 配置mybatis的log4j -->
+	<settings>
+		<setting name="logImpl" value="LOG4J" />
+		<!-- 禁止自动映射 NONE:什么都不匹配，PARTLAL：有内部嵌套不匹配（默认是它）FULL：匹配所有 <setting name="autoMappingBehavior" 
+			value="FULL"/> -->
+	</settings>
+	<typeAliases>
+		<!-- 配置整个实体包:如果配置了整个包，在使用的时候头字母小写 -->
+		<typeAlias alias="user" type="com.entity.User" />
+		<typeAlias alias="provider" type="com.entity.Provider" />
+		<typeAlias alias="bill" type="com.entity.Bill" />
+		<typeAlias alias="role" type="com.entity.Role" />
+		<typeAlias alias="address" type="com.entity.Address" />
+		<package name="com.entity" />
+	</typeAliases>
+</configuration>
